@@ -4,10 +4,8 @@ import compression from "compression";
 import cors from "cors";
 import morgan from "morgan"
 import Controller from "@/utils/interfaces/controller.interface";
-import ErrorMiddleware from "@/middleware/error.middleware"
 import helmet from "helmet"
-
-
+import errorMiddleware from "./middleware/error.middleware";
 class App {
     public express:Application
     public port:number
@@ -38,7 +36,7 @@ class App {
     }
 
     private initialiseErrorHandling():void{
-        this.express.use(ErrorMiddleware)
+         this.express.use(errorMiddleware)
     }
     private initialiseDatabaseConnection():void{
         const { MONGO_URL } = process.env;
