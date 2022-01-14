@@ -7,7 +7,8 @@ function validateEnv():void {
             choices:["development","production"]
         }),
         MONGO_URL:str(),
-        PORT:port({default:8001})
+        PORT:port({default:8001}),
+        JWT_SECRET:str()
     })
 }
 export default validateEnv
